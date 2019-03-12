@@ -2,3 +2,5 @@
 
 我经历了前端的三个阶段
 
+![](/assets/fed-roadmap.png)
+
