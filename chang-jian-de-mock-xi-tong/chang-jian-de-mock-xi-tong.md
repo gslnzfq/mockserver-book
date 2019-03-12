@@ -29,7 +29,17 @@ Link：[http://rap2.taobao.org/](http://rap2.taobao.org/)
 
 ## 2、杭州大搜车
 
-Easy Mock![](/assets/import.png)
+Easy Mock：
+
+技术架构：
+
+* Node.js
+* MongoDB
+* Redis
+
+![](/assets/easy-mock-cap.png)
 
 Link：[https://easy-mock.com/](https://easy-mock.com/)
+
+Repos：https://github.com/easy-mock/easy-mock.git
 
