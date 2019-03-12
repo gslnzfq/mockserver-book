@@ -29,5 +29,5 @@ Link：[http://rap2.taobao.org/](http://rap2.taobao.org/)
 
 ![](/assets/easy-mock.png)
 
-link：[https://easy-mock.com/](https://easy-mock.com/)
+Link：[https://easy-mock.com/](https://easy-mock.com/)
 
