@@ -2,10 +2,6 @@
 
 参考链接：[https://github.com/nuysoft/Mock/wiki](https://github.com/nuysoft/Mock/wiki)
 
-
-
-# 语法规范
-
 Mock.js 的语法规范包括两部分：
 
 1. 数据模板定义规范（Data Template Definition，DTD）
