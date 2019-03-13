@@ -2,9 +2,7 @@
 
 我经历了前端的三个阶段
 
-![](/assets/front-end-roadmap.png)
-
-
+![](/assets/fed-road-map.png)
 
 在前后端不分离的时代，我们是这样工作的（一般只会出现静态的页面，或者是直接使用后端渲染）：
 
