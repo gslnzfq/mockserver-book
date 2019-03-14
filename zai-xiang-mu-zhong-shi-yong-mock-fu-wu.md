@@ -13,6 +13,16 @@ const proxyUrl = {
 // 在这里我们直接使用参数的方式传递一下mock
 // http://www.upliveapps.com?env=mock
 const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
+
+
+// 业务代码
+$.getJSON('/example/1552544591913')
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 ```
 
 2、针对Pb的接口做处理
