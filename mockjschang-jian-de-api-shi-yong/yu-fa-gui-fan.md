@@ -31,5 +31,5 @@
 * 属性值 中可以含有 @占位符。
 * 属性值 还指定了最终值的初始值和类型。
 
-
+更多请查看：[https://github.com/nuysoft/Mock/wiki](https://github.com/nuysoft/Mock/wiki)
 
