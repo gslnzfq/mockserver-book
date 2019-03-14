@@ -14,9 +14,12 @@ const proxyUrl = {
 // http://www.upliveapps.com?env=mock
 const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
 
+$.ajaxSettings.beforeSend = function (xhr, settings) {
+  settings.url = requestPrefix + settings.url
+}
 
 // 业务代码
-$.getJSON(requestPrefix + '/example/1552544591913')
+$.getJSON('/example/1552544591913')
     .then(data => {
         console.log(data);
     })
@@ -30,6 +33,4 @@ $.getJSON(requestPrefix + '/example/1552544591913')
 例如获取用户信息是已经存在的，但是获取榜单的数据是后台还没有开发好的。所以我们就开始升级代码
 
 **2、部分接口使用mock数据**
-
-
 
