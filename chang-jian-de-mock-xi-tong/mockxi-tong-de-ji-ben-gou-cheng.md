@@ -1,6 +1,8 @@
 # Mock系统的基本构成
 
-## 业务分层：![](/assets/mock-server-comps.png)主要分为下面的四层：
+业务分层：![](/assets/mock-server-comps.png)
+
+主要分为下面的四层：
 
 1. Team
 2. Project
