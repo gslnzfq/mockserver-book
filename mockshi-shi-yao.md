@@ -35,7 +35,7 @@ $.getJSON('./xxx.json').then(data=>{console.log(data)});
 
 这个虽然比上一个优秀了一点，**用了请求的方式**，但是我们的路径在后面联调的时候需要修改，一个还好，如果涉及到接口又比较多，工作量巨大，并且容易漏掉。
 
-3、本地搞一个Mock-Server，就像那种简单的，然后使用webpack-dev-server的proxy（跨域是不行的，所以需要proxy）来请求：
+3、本地搞一个API-Server，实现简单的API功能，然后使用webpack-dev-server的proxy（跨域是不行的，所以需要proxy）来请求：
 
 ```js
 // server
