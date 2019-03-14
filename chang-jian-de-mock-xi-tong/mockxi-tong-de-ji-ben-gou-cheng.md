@@ -2,7 +2,7 @@
 
 业务分层：
 
-
+![](/assets/xmind-mock-server-service.png)
 
 技术架构：![](/assets/mock-system.png)
 
