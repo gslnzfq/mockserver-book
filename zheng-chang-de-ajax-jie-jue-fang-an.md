@@ -16,7 +16,7 @@ const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
 
 
 // 业务代码
-$.getJSON('/example/1552544591913')
+$.getJSON(requestPrefix + '/example/1552544591913')
     .then(data => {
         console.log(data);
     })
@@ -30,10 +30,6 @@ $.getJSON('/example/1552544591913')
 例如获取用户信息是已经存在的，但是获取榜单的数据是后台还没有开发好的。所以我们就开始升级代码
 
 **2、部分接口使用mock数据**
-
-
-
-
 
 
 
