@@ -2,3 +2,5 @@
 
 本次分享大家可以知道：![](/assets/goals.png)
 
+![](/assets/goals.png)
+
