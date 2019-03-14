@@ -17,6 +17,21 @@ var respData = {
         {name: 'zhangsan', age: 20}
     ]
 };
+
+// React
+class App {
+    state = {
+        name: 'zhangsan',
+        age: 20
+    };
+    render() {
+        return (
+            <div>
+                大家好，我是{this.state.name},今年{this.state.age}岁
+            </div>
+        )
+    }
+}
 ```
 
 在React中我们会将造的数据写在state里面，先不发请求获取数据，后期联调的时候再删除掉，有时候我们联调的时候忘记删除了，就会出现，请求没有回来的时候页面上显示的假数据，体验不是很好。
