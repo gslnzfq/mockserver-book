@@ -49,10 +49,10 @@ $.getJSON('/users').then(data=> {console.log(data)});
 
 只要我们API-Server的请求路径和请求方式（POST,GET,PUT,DELETE）和实际后端的路由是相同的，我们在联调的时候只需要修改一下域名就可以了，这也是Mock-Server的雏形。但是还存在一些问题：
 
-* 我们每次加一个接口，都需要写代码，重启Mock-Server
-* 每个人都需要一个Mock-Server
+* 我们每次加一个接口，都需要写代码，重启API-Server
+* 每个人都需要在本地一个API-Server，除非搭建在内部服务器上
+* 我们使用的就是所有接口每次调用返回的都是一样的，_数据没有意义_
 * 无法进行协作和api共享
-* 我们使用的就是所有接口每次调用返回的都是一样的
 
 ## Mock系统出现
 
