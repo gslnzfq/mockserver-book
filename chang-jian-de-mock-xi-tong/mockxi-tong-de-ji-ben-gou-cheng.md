@@ -4,7 +4,7 @@
 
 常见的Mock系统大概都是下面的分层
 
-![](/assets/mock-server-comps.png)
+![](../assets/mock-server-comps.png)
 
 主要分为下面的四层：
 
@@ -17,7 +17,7 @@
 
 在设计上，基本都遵从下面的设计：
 
-![](/assets/mock-system.png)
+![](../assets/mock-system.png)
 
 Mock Server主要是由下面的部分构成：
 
