@@ -1,8 +1,6 @@
 # Mock系统的基本构成
 
-业务分层：
-
-![](/assets/mock-server-comps.png)
+业务分层：![](/assets/mock-server-comps.png)
 
 技术架构：![](/assets/mock-system.png)
 
