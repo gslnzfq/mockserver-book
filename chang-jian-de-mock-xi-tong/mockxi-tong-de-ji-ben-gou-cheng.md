@@ -1,15 +1,23 @@
 # Mock系统的基本构成
 
-业务分层：![](/assets/mock-server-comps.png)
+## 业务分层：
+
+常见的Mock系统大概都是下面的分层
+
+![](/assets/mock-server-comps.png)
 
 主要分为下面的四层：
 
-1. Team
-2. Project
-3. Module
-4. API Info
+1. Team（团队、大型的开放系统上层还有企业分支）
+2. Project（项目，和我们的项目可能有些不同，说是业务线比较合适）
+3. Module（模块，这个更加像是我们所说的项目）
+4. API Info（接口，API接口）
 
-**技术架构：**![](/assets/mock-system.png)
+## 技术架构：
+
+在设计上，基本都遵从下面的设计：
+
+![](/assets/mock-system.png)
 
 Mock Server主要是由下面的部分构成：
 
@@ -19,5 +27,5 @@ Mock Server主要是由下面的部分构成：
 4. mock路由解析器（读取接口配置并生成数据，是mock.js最重要的部分）
 5. 接口配置存储（存储用户添加的配置）
 
-
+## URL构成
 
