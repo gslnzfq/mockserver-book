@@ -25,6 +25,11 @@ v2：
 * Server
 * server: node
 
+缺点：
+
+* 社区版本没有管理员，密码忘记了，需要在数据库修改；
+* 部署需要MySQL，Redis，Node.js环境；
+
 ![](/assets/rap2.png)
 
 Link：[http://rap2.taobao.org/](http://rap2.taobao.org/)
@@ -48,3 +53,4 @@ Link：[https://easy-mock.com/](https://easy-mock.com/)
 Repos：[https://github.com/easy-mock/easy-mock.git](https://github.com/easy-mock/easy-mock.git)
 
 Wiki：[https://github.com/easy-mock/easy-mock/blob/dev/README.zh-CN.md](https://github.com/easy-mock/easy-mock/blob/dev/README.zh-CN.md)
+
