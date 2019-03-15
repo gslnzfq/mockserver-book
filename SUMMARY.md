@@ -9,8 +9,7 @@
 * Mock.js常用API
   * [语法规范](mockjschang-jian-de-api-shi-yong/yu-fa-gui-fan.md)
   * [实例演示](mockjschang-jian-de-api-shi-yong/shi-li-yan-shi.md)
-  * [RAP2操作流程](mockjschang-jian-de-api-shi-yong/rap2cao-zuo-liu-cheng.md)
-* 在项目中使用
+* [在项目中使用](zai-xiang-mu-zhong-shi-yong.md)
   * [AJAX解决方案](/use-mock-in-project/zheng-chang-de-ajax-jie-jue-fang-an.md)
   * [PB解决方案](/use-mock-in-project/zhen-dui-pb-de-jie-jue-fang-an.md)
 * [参考文献](can-kao-lian-jie.md)
