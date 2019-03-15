@@ -37,7 +37,19 @@ $.getJSON('/example/1552544591913')
 
 **2、部分接口使用mock数据**
 
-现在我们要做的就是需要将Mock的接口和已经存在的接口分开。
+现在我们要做的就是需要将Mock的接口和已经存在的接口分开。那我们就需要拦截一些请求，做下面的操作：
+
+```js
+// 修改ajaxSettings部分
+$.ajaxSettings.beforeSend = function (xhr, settings) {
+  const url = settings.url;
+  if (/\/ranklist\//.test(url)) {
+    settings.url = requestPrefix + settings.url
+  } else {
+    settings.url = requestPrefix + settings.url
+  }
+}
+```
 
 **3、多个后台地址处理**
 
