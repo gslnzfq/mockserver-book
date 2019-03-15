@@ -83,10 +83,21 @@ $.getJSON('/example/1552544591913')
 
 **3、多个后台地址处理**
 
-这种情况也不是不可能，可以根据方法2和目前的场景做一次整合，实现可参考：
+这种情况也不是不可能，可以根据方法2和目前的场景做一次整合，实现可参考（url没有实际意义，仅供参考）：
 
 ```js
+// 因为我们后台具有多个url，所以我们需要配置两套域名
+const mallOrigin = {
+    stage: 'https://mall.xingyunzhi.com',
+    pro: 'https://mall.pengpengla.com',
+    mock: 'http://rap2api.taobao.org/app/mock/162121'
+};
 
+const rankOrigin = {
+    stage: 'https://rank.xingyunzhi.com',
+    pro: 'https://rank.pengpengla.com',
+    mock: 'http://rap2api.taobao.org/app/mock/162125'
+};
 ```
 
 
