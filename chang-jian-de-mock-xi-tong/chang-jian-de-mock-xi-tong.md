@@ -1,8 +1,8 @@
 # 常见的Mock系统
 
-## 1、阿里巴巴
+## 1、RAP
 
-RAP：
+> 开发者：阿里妈妈前端团队
 
 v0.14.16（就不看了）：
 
@@ -36,9 +36,9 @@ Link：[http://rap2.taobao.org/](http://rap2.taobao.org/)
 
 Wiki：[https://github.com/thx/rap2-delos/wiki](https://github.com/thx/rap2-delos/wiki)
 
-## 2、杭州大搜车
+## 2、Easy Mock
 
-Easy Mock：
+> 开发者：杭州大搜车
 
 技术架构：
 
