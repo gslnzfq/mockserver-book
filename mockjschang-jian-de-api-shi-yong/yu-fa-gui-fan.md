@@ -24,7 +24,7 @@
 4. 'name|min-max.dcount': value
 5. 'name|count.dmin-dmax': value
 6. 'name|count.dcount': value
-7. 'name|+step': value'name|min-max': value
+7. 'name|+step': value
 ```
 
 * 生成规则 的 含义 需要依赖 属性值的类型 才能确定。
