@@ -86,28 +86,70 @@ $.getJSON('/example/1552544591913')
 这种情况也不是不可能，可以根据方法2和目前的场景做一次整合，实现可参考（url没有实际意义，仅供参考）：
 
 ```js
+import Url from 'c-url'
 // 因为我们后台具有多个url，所以我们需要配置两套域名
 const mallOrigin = {
-    stage: 'https://mall.xingyunzhi.com',
-    pro: 'https://mall.pengpengla.com',
-    mock: 'http://rap2api.taobao.org/app/mock/162121'
-};
+  stage: 'https://mall.xingyunzhi.com',
+  pro: 'https://mall.pengpengla.com',
+  mock: 'http://rap2api.taobao.org/app/mock/162121'
+}
 
 const rankOrigin = {
-    stage: 'https://rank.xingyunzhi.com',
-    pro: 'https://rank.pengpengla.com',
-    mock: 'http://rap2api.taobao.org/app/mock/162125'
-};
+  stage: 'https://rank.xingyunzhi.com',
+  pro: 'https://rank.pengpengla.com',
+  mock: 'http://rap2api.taobao.org/app/mock/162125'
+}
 
-// 生成mallAjax的前缀
+// 获取环境，可选值是stage,pro
+const env = Url.query('env') || 'pro'
+const isMock = Url.query('mock') === 'true'
 
-// 生成rankAjax的前缀
+// 生成mallAjax url
+function getMallAjaxUrl (url) {
+  const requestPrefix = mallOrigin[env]
+  // 在这里正则匹配url或者是其他方式
+  if (/\/profile\//.test(url) && isMock) {
+    return mallOrigin.mock + url
+  }
+  return requestPrefix + url
+}
+
+// 生成rankAjax url
+function getRankAjaxUrl (url) {
+  const requestPrefix = rankOrigin[env]
+  // 在这里正则匹配url或者是其他方式
+  if (/\/ranklist\//.test(url) && isMock) {
+    return rankOrigin.mock + url
+  }
+  return requestPrefix + url
+}
 
 // 创建各自的ajax方法
-$.mallAjax = function(config) {
-    config.url = 
-    return $.ajax(config);
-};
+$.ajax.use = function (service) {
+  const urlHandleMap = {
+    rank: getRankAjaxUrl,
+    mall: getMallAjaxUrl
+  }
+  const def = url => url
+  $.ajaxSettings.beforeSend = function (xhr, settings) {
+    settings.url = (urlHandleMap[service] || def)(settings.url)
+  }
+}
+// rank
+// 初始化
+$.ajax.use('rank')
+$.get('/example/1552544591913')
+  .then(data => {
+    console.log(data)
+  })
+
+// mall
+$.ajax.use('mall')
+$.get('/example/1552544591913')
+  .then(data => {
+    console.log(data)
+  })
+
 ```
 
 
