@@ -153,10 +153,11 @@ $.ajax.use('mall').get('/example/1552544591913')
   .then(data => {
     console.log(data)
   })
-
 ```
 
-这其实只是一个参考的方案，并不是目前最优的，如有优秀的方案，请提出来。
+这其实只是一个参考的方案，并不是目前最优的，如有优秀的方案，可以一起讨论。
 
 如果在项目中使用了axios，那就更加简单了，请参考：[https://github.com/axios/axios\#custom-instance-defaults](https://github.com/axios/axios#custom-instance-defaults)
+
+**注意：这个是针对多个后端服务的处理，如果只涉及到单个后端服务，请直接使用方法2。**
 
