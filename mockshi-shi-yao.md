@@ -62,7 +62,7 @@ app.get('/users', (req,resp) => res.json([{name:'zhangsan', age:30}]));
 $.getJSON('/users').then(data=> {console.log(data)});
 ```
 
-> 注意：这里就需要我们懂一些Node.js和Proxy的知识了。
+> 注意：这里就需要我们懂一些Node.js和proxy的知识了。
 
 只要我们API-Server的请求路径和请求方式（POST,GET,PUT,DELETE）和实际后端的路由是相同的，我们在联调的时候只需要修改一下域名就可以了，这也是Mock-Server的雏形。但是还存在一些问题：
 
