@@ -38,7 +38,7 @@ Wiki：[https://github.com/thx/rap2-delos/wiki](https://github.com/thx/rap2-delo
 
 ## 2、Easy Mock
 
-> 开发者：杭州大搜车
+> 开发者：杭州大搜车前端
 
 技术架构：
 
