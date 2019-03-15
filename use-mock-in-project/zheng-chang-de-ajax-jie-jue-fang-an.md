@@ -134,9 +134,10 @@ $.ajax.use = function (service) {
   $.ajaxSettings.beforeSend = function (xhr, settings) {
     settings.url = (urlHandleMap[service] || def)(settings.url)
   }
+  return $
 }
 // rank
-// 初始化
+// 初始化，注意$.ajax.use('rank')的时机，如果这个页面只涉及到一个服务的请求，在js的顶部执行$.ajax.use('rank')就可以了
 $.ajax.use('rank')
 $.get('/example/1552544591913')
   .then(data => {
@@ -144,13 +145,14 @@ $.get('/example/1552544591913')
   })
 
 // mall
-$.ajax.use('mall')
-$.get('/example/1552544591913')
+// 如果页面中涉及到多个服务的请求，可以使用下面的方式执行，为什么后面可以连缀执行，是因为use返回了$
+$.ajax.use('mall').get('/example/1552544591913')
   .then(data => {
     console.log(data)
   })
-
 ```
 
+这其实只是一个参考的方案，并不是目前最优的，如有优秀的方案，请提出来。
 
+如果在项目中使用了axios，那就更加简单了，请参考：https://github.com/axios/axios\#custom-instance-defaults
 
