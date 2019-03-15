@@ -1,0 +1,20 @@
+{
+  "language": "zh-hans",
+  "title": "Webpack",
+  "author": "gslnzfq",
+  "plugins": [
+    "search-pro",
+    "emphasize",
+    "sectionx",
+    "anchor-navigation",
+    "back-to-top-button",
+    "share",
+    "-search"
+  ],
+  "pluginsConfig": {
+    
+  },
+  "styles": {
+    "website": "styles/index.css"
+  }
+}
