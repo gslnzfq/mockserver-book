@@ -87,52 +87,55 @@ $.getJSON('/example/1552544591913')
 
 ```js
 import Url from 'c-url'
-// 因为我们后台具有多个url，所以我们需要配置两套域名
-const mallOrigin = {
-  stage: 'https://mall.xingyunzhi.com',
-  pro: 'https://mall.pengpengla.com',
-  mock: 'http://rap2api.taobao.org/app/mock/162121'
-}
-
-const rankOrigin = {
-  stage: 'https://rank.xingyunzhi.com',
-  pro: 'https://rank.pengpengla.com',
-  mock: 'http://rap2api.taobao.org/app/mock/162125'
+// 因为我们后台具有多个url，所以我们需要配置多套域名
+const origins = {
+  mall: {
+    origin: {
+      stage: 'https://mall.xingyunzhi.com',
+      pro: 'https://mall.pengpengla.com',
+      mock: 'http://rap2api.taobao.org/app/mock/162121'
+    },
+    mockUrl: /\/profile\//
+  },
+  rank: {
+    origin: {
+      stage: 'https://rank.xingyunzhi.com',
+      pro: 'https://rank.pengpengla.com',
+      mock: 'http://rap2api.taobao.org/app/mock/162125'
+    },
+    mockUrl: /\/ranklist\//
+  },
+  default: {
+    origin: {},
+    mockUrl: null
+  }
 }
 
 // 获取环境，可选值是stage,pro
 const env = Url.query('env') || 'pro'
 const isMock = Url.query('mock') === 'true'
 
-// 生成mallAjax url
-function getMallAjaxUrl (url) {
-  const requestPrefix = mallOrigin[env]
-  // 在这里正则匹配url或者是其他方式
-  if (/\/profile\//.test(url) && isMock) {
-    return mallOrigin.mock + url
+/**
+ * 获取请求路径，通过服务的名字
+ * @param {String} originName 
+ */
+function getOriginPath (originName) {
+  let {origin, mockUrl} = origins[originName] || origins.default
+  return function (url) {
+    const requestPrefix = origin[env] || '/'
+    // 在这里正则匹配url或者是其他方式
+    if (mockUrl && mockUrl.test(url) && isMock) {
+      return origin.mock + url
+    }
+    return requestPrefix + url
   }
-  return requestPrefix + url
-}
-
-// 生成rankAjax url
-function getRankAjaxUrl (url) {
-  const requestPrefix = rankOrigin[env]
-  // 在这里正则匹配url或者是其他方式
-  if (/\/ranklist\//.test(url) && isMock) {
-    return rankOrigin.mock + url
-  }
-  return requestPrefix + url
 }
 
 // 创建各自的ajax方法
 $.ajax.use = function (service) {
-  const urlHandleMap = {
-    rank: getRankAjaxUrl,
-    mall: getMallAjaxUrl
-  }
-  const def = url => url
+  const getPath = getOriginPath(service)
   $.ajaxSettings.beforeSend = function (xhr, settings) {
-    settings.url = (urlHandleMap[service] || def)(settings.url)
+    settings.url = getPath(settings.url)
   }
   return $
 }
@@ -150,9 +153,10 @@ $.ajax.use('mall').get('/example/1552544591913')
   .then(data => {
     console.log(data)
   })
+
 ```
 
 这其实只是一个参考的方案，并不是目前最优的，如有优秀的方案，请提出来。
 
-如果在项目中使用了axios，那就更加简单了，请参考：https://github.com/axios/axios\#custom-instance-defaults
+如果在项目中使用了axios，那就更加简单了，请参考：[https://github.com/axios/axios\#custom-instance-defaults](https://github.com/axios/axios#custom-instance-defaults)
 
