@@ -1,6 +1,6 @@
 {
   "language": "zh-hans",
-  "title": "Webpack",
+  "title": "Mock Server使用",
   "author": "gslnzfq",
   "plugins": [
     "search-pro",
@@ -9,12 +9,19 @@
     "anchor-navigation",
     "back-to-top-button",
     "share",
+    "code",
+    "popup",
+    "copy-code-button",
     "-search"
   ],
-  "pluginsConfig": {
-    
-  },
+  "pluginsConfig": {},
   "styles": {
     "website": "styles/index.css"
+  },
+  "links": {
+    "sidebar": {
+      "亚创HTML5技术团队": "http://h5doc.pengpengla.com",
+      "zenbone打包工具": "https://www.npmjs.com/package/zenbone"
+    }
   }
 }
