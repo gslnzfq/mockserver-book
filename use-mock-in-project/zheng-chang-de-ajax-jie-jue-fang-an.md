@@ -98,6 +98,16 @@ const rankOrigin = {
     pro: 'https://rank.pengpengla.com',
     mock: 'http://rap2api.taobao.org/app/mock/162125'
 };
+
+// 生成mallAjax的前缀
+
+// 生成rankAjax的前缀
+
+// 创建各自的ajax方法
+$.mallAjax = function(config) {
+    config.url = 
+    return $.ajax(config);
+};
 ```
 
 
