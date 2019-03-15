@@ -5,6 +5,7 @@
 **1、先做最简单的一个版本**
 
 ```js
+// ajax.js
 import Url from 'c-url';
 // 我们一般会定义每个环境对应的api地址，例如下面的代码
 const proxyUrl = {
@@ -22,6 +23,7 @@ $.ajaxSettings.beforeSend = function (xhr, settings) {
 }
 
 // 业务代码
+// app.js
 $.getJSON('/example/1552544591913')
     .then(data => {
         console.log(data);
@@ -40,6 +42,7 @@ $.getJSON('/example/1552544591913')
 现在我们要做的就是需要将Mock的接口和已经存在的接口分开。那我们就需要拦截一些请求，做下面的操作：
 
 ```js
+// ajax.js
 import Url from 'c-url';
 // 我们一般会定义每个环境对应的api地址，例如下面的代码
 const proxyUrl = {
@@ -63,6 +66,7 @@ $.ajaxSettings.beforeSend = function (xhr, settings) {
 }
 
 // 业务代码
+// app.js
 $.getJSON('/example/1552544591913')
     .then(data => {
         console.log(data);
