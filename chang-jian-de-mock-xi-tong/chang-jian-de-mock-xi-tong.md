@@ -28,7 +28,7 @@ v2：
 缺点：
 
 * 社区版本没有管理员，密码忘记了，需要在数据库修改；
-* 部署需要MySQL，Redis，Node.js环境；
+* 部署需要MySQL，Redis，Node.js环境，不过可以使用docker部署；
 
 ![](/assets/rap2.png)
 
