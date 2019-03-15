@@ -17,11 +17,5 @@
   "pluginsConfig": {},
   "styles": {
     "website": "styles/index.css"
-  },
-  "links": {
-    "sidebar": {
-      "亚创HTML5技术团队": "http://h5doc.pengpengla.com",
-      "zenbone打包工具": "https://www.npmjs.com/package/zenbone"
-    }
   }
 }
