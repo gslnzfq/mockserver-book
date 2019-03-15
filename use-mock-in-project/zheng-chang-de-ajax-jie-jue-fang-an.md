@@ -43,7 +43,7 @@ $.getJSON('/example/1552544591913')
 // 修改ajaxSettings部分
 $.ajaxSettings.beforeSend = function (xhr, settings) {
   const url = settings.url;
-  if (/\/ranklist\//.test(url)) {
+  if (/\/ranklist\//.test(url) && process.env.NODE_ENV === 'mock') {
     settings.url = requestPrefix + settings.url
   } else {
     settings.url = requestPrefix + settings.url
