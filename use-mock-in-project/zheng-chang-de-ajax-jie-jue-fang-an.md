@@ -40,15 +40,37 @@ $.getJSON('/example/1552544591913')
 现在我们要做的就是需要将Mock的接口和已经存在的接口分开。那我们就需要拦截一些请求，做下面的操作：
 
 ```js
+import Url from 'c-url';
+// 我们一般会定义每个环境对应的api地址，例如下面的代码
+const proxyUrl = {
+    pro: 'https://proxy.upliveapps.com/index/index',
+    stage: '//sg-stage-proxy.upliveapp.com/index/index',
+    mock: 'http://rap2api.taobao.org/app/mock/162162'
+};
+// 在这里我们直接使用参数的方式传递一下mock
+// http://www.upliveapps.com?env=mock
+const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
+
+// 设置全局的前缀
 // 修改ajaxSettings部分
 $.ajaxSettings.beforeSend = function (xhr, settings) {
   const url = settings.url;
-  if (/\/ranklist\//.test(url) && process.env.NODE_ENV === 'mock') {
-    settings.url = requestPrefix + settings.url
+  // 在这里正则匹配url或者是其他方式
+  if (/\/ranklist\//.test(url) && Url.query('mock') === 'true') {
+    settings.url = proxyUrl.mock + settings.url
   } else {
     settings.url = requestPrefix + settings.url
   }
 }
+
+// 业务代码
+$.getJSON('/example/1552544591913')
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 ```
 
 **3、多个后台地址处理**
