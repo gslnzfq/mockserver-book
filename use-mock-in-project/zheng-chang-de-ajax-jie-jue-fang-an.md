@@ -47,8 +47,7 @@ const proxyUrl = {
     stage: '//sg-stage-proxy.upliveapp.com/index/index',
     mock: 'http://rap2api.taobao.org/app/mock/162162'
 };
-// 在这里我们直接使用参数的方式传递一下mock
-// http://www.upliveapps.com?env=mock
+// http://www.upliveapps.com?env=stage
 const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
 
 // 设置全局的前缀
