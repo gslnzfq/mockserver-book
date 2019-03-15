@@ -4,7 +4,7 @@
 
 > 开发者：阿里妈妈前端团队
 
-v0.14.16（就不看了）：
+v0.14.16（就不看了，后台java实现，对我们维护不太友好）：
 
 [http://rapapi.org/org/index.do](http://rapapi.org/org/index.do)
 
