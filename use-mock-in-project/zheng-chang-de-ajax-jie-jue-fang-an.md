@@ -22,6 +22,15 @@ $.ajaxSettings.beforeSend = function (xhr, settings) {
   settings.url = requestPrefix + settings.url
 }
 
+// 重写ajax核心
+// 因为$.get, $.post等都是基于$.ajax封装的快捷方案，所以修改一下$.ajax能解决所有的问题，下面是实现：
+const _ajax = $.ajax;
+$.ajax = settings => {
+    // 几乎可以修改掉所有的属性
+    settings.url = requestPrefix + settings.url
+    return _ajax(settings);
+};
+
 // 业务代码
 // app.js
 $.getJSON('/example/1552544591913')
@@ -53,17 +62,20 @@ const proxyUrl = {
 // http://www.upliveapps.com?env=stage
 const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
 
-// 设置全局的前缀
-// 修改ajaxSettings部分
-$.ajaxSettings.beforeSend = function (xhr, settings) {
-  const url = settings.url;
-  // 在这里正则匹配url或者是其他方式
-  if (/\/ranklist\//.test(url) && Url.query('mock') === 'true') {
-    settings.url = proxyUrl.mock + settings.url
-  } else {
-    settings.url = requestPrefix + settings.url
-  }
-}
+// 重写ajax核心
+// 因为$.get, $.post等都是基于$.ajax封装的快捷方案，所以修改一下$.ajax能解决所有的问题，下面是实现：
+$.ajax = settings => {
+    // 几乎可以修改掉所有的属性
+    const url = settings.url;
+    // 在这里正则匹配url或者是其他方式
+    if (/\/ranklist\//.test(url) && Url.query('mock') === 'true') {
+      settings.url = proxyUrl.mock + url
+    } else {
+      settings.url = requestPrefix + url
+    }
+
+    return _ajax(settings);
+};
 
 // 业务代码
 // app.js
@@ -134,9 +146,13 @@ function getOriginPath (originName) {
 // 创建各自的ajax方法
 $.ajax.use = function (service) {
   const getPath = getOriginPath(service)
-  $.ajaxSettings.beforeSend = function (xhr, settings) {
-    settings.url = getPath(settings.url)
-  }
+  const _ajax = $.ajax;
+  // 重写ajax核心
+  // 因为$.get, $.post等都是基于$.ajax封装的快捷方案，所以修改一下$.ajax能解决所有的问题，下面是实现：
+  $.ajax = settings => {
+      settings.url = getPath(settings.url)
+      return _ajax(settings);
+  };
   return $
 }
 // rank
