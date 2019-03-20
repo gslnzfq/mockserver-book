@@ -17,11 +17,6 @@ const proxyUrl = {
 // http://www.upliveapps.com?env=mock
 const requestPrefix = proxyUrl[Url.query('env') || 'pro'];
 
-// 设置全局的前缀
-$.ajaxSettings.beforeSend = function (xhr, settings) {
-  settings.url = requestPrefix + settings.url
-}
-
 // 重写ajax核心
 // 因为$.get, $.post等都是基于$.ajax封装的快捷方案，所以修改一下$.ajax能解决所有的问题，下面是实现：
 const _ajax = $.ajax;
@@ -175,5 +170,5 @@ $.ajax.use('mall').get('/example/1552544591913')
 
 如果在项目中使用了axios，那就更加简单了，请参考：[https://github.com/axios/axios\#custom-instance-defaults](https://github.com/axios/axios#custom-instance-defaults)
 
-**注意：这个是针对多个后端服务的处理，如果只涉及到单个后端服务，请直接使用方法2。**
+**注意：这个是针对多个后端服务的处理，如果只涉及到单个后端服务，**_**请直接使用方法2**_**。**
 
