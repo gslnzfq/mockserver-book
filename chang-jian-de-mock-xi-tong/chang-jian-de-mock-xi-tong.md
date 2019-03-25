@@ -10,22 +10,18 @@ v0.14.16（就不看了，后台java实现，对我们维护不太友好）：
 
 v2：
 
-
-
-
-
-
-
-
-
-
-
 前端架构\(rap2-dolores\)
 
 * React / Redux / Saga / Router
 * Mock.js
 * SASS / Bootstrap 4 beta
 * server: nginx
+
+
+
+
+
+
 
 后端架构\(rap2-delos\)
 
